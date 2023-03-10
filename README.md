@@ -136,4 +136,16 @@ bash play.sh
 
 ### 5. 基于 PL011 实现 IO 打印
 
+```bash
+cd demo2
 
+make
+```
+
+样例输出如下
+
+```bash
+!
+```
+
+CTRL+a+c 打开 QEMU 新控制台，输入 `q` 退出即可。
