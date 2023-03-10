@@ -149,3 +149,6 @@ make
 ```
 
 CTRL+a+c 打开 QEMU 新控制台，输入 `q` 退出即可。
+
+## 参考文献
+- [Writing and debugging bare metal arm64](https://surma.dev/postits/arm64/)
