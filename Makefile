@@ -8,6 +8,13 @@ OBJCOPY := $(ARM64GNU)objcopy
 .PHONY: all
 all: kernel.bin
 
+.PHONY: clean
+clean:
+	@rm -rf *.bin *.dtb *.elf *.o
+
+debug: kernel.elf
+	gdb-multiarch -ex "set architecture aarch64" -ex "target remote localhost:1234" $< 
+
 dump: kernel.elf
 	$(OBJDUMP) -d $<
 
@@ -60,6 +67,3 @@ run-elf-for-debug: kernel.elf
 		-device loader,file=kernel.elf 						\
 		-device loader,addr=0x40100000,cpu-num=0	\
 		-s -S
-
-debug: kernel.elf
-	gdb-multiarch -ex "set architecture aarch64" -ex "target remote localhost:1234" $< 
