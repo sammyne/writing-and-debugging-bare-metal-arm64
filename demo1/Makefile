@@ -13,7 +13,12 @@ clean:
 	@rm -rf *.bin *.dtb *.elf *.o
 
 debug: kernel.elf
-	gdb-multiarch -ex "set architecture aarch64" -ex "target remote localhost:1234" $< 
+	@gdb-multiarch 												\
+		-ex "set architecture aarch64" 			\
+		-ex "target remote localhost:1234" 	\
+		-ex "disassemble" 									\
+		-ex "q" 														\
+		$< 
 
 dump: kernel.elf
 	$(OBJDUMP) -d $<
@@ -29,7 +34,6 @@ dump.dtb: kernel.elf
 		-nographic 																\
 		-device loader,file=$< 										\
 		-device loader,addr=0x40100000,cpu-num=0
-
 
 kernel.bin: kernel.elf
 	$(OBJCOPY) -O binary $< $@
