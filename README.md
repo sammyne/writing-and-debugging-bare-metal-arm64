@@ -152,3 +152,4 @@ CTRL+a+c 打开 QEMU 新控制台，输入 `q` 退出即可。
 
 ## 参考文献
 - [Writing and debugging bare metal arm64](https://surma.dev/postits/arm64/)
+- [QEMU 面向裸金属编程的硬件配置](https://qemu.readthedocs.io/en/v7.2.0/system/arm/virt.html#hardware-configuration-information-for-bare-metal-programming)
